@@ -7,41 +7,46 @@ const foodItems = document.querySelector(".food-items");
 const foodItemsObject = {
   gammon: {
     name: "gammon",
-    h: 1,
-    m: 32,
+    h: 0,
+    m: 1,
     s: 12,
   },
 
   veg: {
     name: "veg",
     h: 0,
-    m: 45,
+    m: 02,
     s: 00,
   },
 
   potatoes: {
     name: "potatoes",
-    h: 1,
-    m: 12,
-    s: 00,
+    h: 12,
+    m: 0,
+    s: 30,
   },
 };
 
 // to display each food item in a row
 function displayFoodItems(foodItem) {
+  const hours = (`0` + `${String(foodItem.h)}`).slice(-2);
+  const minutes = (`0` + `${String(foodItem.m)}`).slice(-2);
+  const secs = (`0` + `${String(foodItem.s)}`).slice(-2);
   const html = `
   <div class="timer-row">
         
   <div class="food-name">${foodItem.name}</div>
   <div class="food-timer">
-    <p class="timer-hours timer-display">${foodItem.h}</p>
-    <p class="timer-separator">:</p>
-    <p class="timer-minutes timer-display">${foodItem.m}</p>
-    <p class="timer-separator">:</p>
-    <p class="timer-seconds timer-display">${foodItem.s}</p>
+    <p class="timer-hours timer-display">${hours}&nbsp;&nbsp;</p>
+    <p class="timer-separator">:&nbsp;</p>
+    <p class="timer-minutes timer-display">${minutes}&nbsp;&nbsp;</p>
+    <p class="timer-separator">:&nbsp;</p>
+    <p class="timer-seconds timer-display">${secs}</p>
   </div>
   <div class="start-btn"><i class="fas fa-play"></i></div>
+  
 </div>
+<div class="progress-bar"></div>
     `;
 
   foodItems.insertAdjacentHTML("beforeend", html);
@@ -56,6 +61,7 @@ const startTimerButtons = document.querySelectorAll(".start-btn");
 
 startTimerButtons.forEach(function (e) {
   e.addEventListener("click", function () {
+    e.classList.add("hidden");
     let seconds =
       Number(e.previousElementSibling.firstElementChild.textContent) * 3600 +
       Number(
@@ -64,18 +70,22 @@ startTimerButtons.forEach(function (e) {
       ) *
         60 +
       Number(e.previousElementSibling.lastElementChild.textContent);
-
+    e.parentElement.nextElementSibling.style.width = "100%";
+    e.parentElement.nextElementSibling.style.transition = `all ${seconds}s`;
     setInterval(function () {
       seconds--;
 
       const newSeconds = seconds % 60;
       const newHours = Math.trunc(seconds / 3600);
       const newMinutes = Math.trunc(seconds / 60) % 60;
-      e.previousElementSibling.lastElementChild.textContent =
-        String(newSeconds);
+      e.previousElementSibling.lastElementChild.textContent = (
+        0 + `${String(newSeconds)}`
+      ).slice(-2);
       e.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.textContent =
-        String(newMinutes);
-      e.previousElementSibling.firstElementChild.textContent = String(newHours);
+        (0 + `${String(newMinutes)}`).slice(-2);
+      e.previousElementSibling.firstElementChild.textContent = (
+        0 + `${String(newHours)}`
+      ).slice(-2);
     }, 1000);
   });
 });
