@@ -10,6 +10,8 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Quicksand", sans-serif;
+
+  font-size: calc(16px + (32 - 16) * ((100vw - 320px) / (1600 - 320)));
 }
 p {
   margin: 0;
@@ -37,7 +39,7 @@ p {
 .app-heading {
   /* border: 1px solid red; */
   height: 5%;
-  font-size: 1.3rem;
+
   margin-top: 5px;
   margin-bottom: 10px;
 }
@@ -48,7 +50,6 @@ p {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  font-size: 2rem;
 }
 .timer-row {
   margin-top: 0.5rem;
@@ -102,7 +103,6 @@ p {
   color: #fff;
 }
 .ready-message {
-  font-size: 0.8rem;
   color: #fff;
 }
 .add-item-section {
@@ -154,7 +154,6 @@ p {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    font-size: 2rem;
   }
 
   .timer-row {
@@ -162,17 +161,12 @@ p {
 
     /* border-color: indigo; */
   }
-  .form {
-    font-size: 14px;
-  }
+
   .heading2 {
-    font-size: 14px;
     margin-top: 5px;
     margin-bottom: 10px;
   }
-  .food-items {
-    font-size: 18px;
-  }
+
   .form {
     padding-left: 0.5rem;
     padding-right: 0rem;
