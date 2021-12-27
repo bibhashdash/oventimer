@@ -27,11 +27,19 @@ p {
   align-items: center;
   justify-content: flex-start;
 }
-.heading {
-  /* border-color: violet; */
+/* .heading {
+  border-color: violet;
   width: 100%;
   height: 10%;
   text-align: center;
+} */
+
+.app-heading {
+  /* border: 1px solid red; */
+  height: 5%;
+  font-size: 1.3rem;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 .food-items {
   /* border-color: violet; */
@@ -132,12 +140,23 @@ p {
     border: 1px solid;
     border-color: black;
     width: 99vw;
-    height: 100vh;
+    height: 97vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
   }
+
+  .food-items {
+    /* border-color: violet; */
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    font-size: 2rem;
+  }
+
   .timer-row {
     height: 4rem;
 
@@ -146,16 +165,21 @@ p {
   .form {
     font-size: 14px;
   }
+  .heading2 {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
   .food-items {
     font-size: 18px;
   }
   .form {
-    padding-left: 0.2rem;
-    padding-right: 0.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0rem;
     display: grid;
     grid-template-columns: 25% 65%;
     grid-template-rows: repeat(4, 1fr);
-    gap: 5px;
+    /* gap: 5px; */
   }
   .form-input {
     height: 1rem;
@@ -165,7 +189,7 @@ p {
   .add-item-section {
     border: 1px solid black;
     width: 100%;
-    height: 40%;
+    height: 35%;
     display: flex;
     flex-direction: column;
     align-items: stretch;
