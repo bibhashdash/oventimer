@@ -97,6 +97,7 @@ p {
   justify-self: flex-start;
 
   justify-content: center;
+  padding: 1.5rem 0;
 }
 .food-ready {
   background-color: dimgray;
@@ -125,7 +126,7 @@ p {
   gap: 10px;
 }
 .form-input {
-  height: 1.3rem;
+  height: 2.2rem;
   font-family: "Quicksand", sans-serif;
   color: gray;
 }

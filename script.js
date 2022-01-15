@@ -3,9 +3,7 @@ const timerMinutesDisplay = document.querySelector(".timer-minutes");
 const timerSecondsDisplay = document.querySelector(".timer-seconds");
 const startBtn = document.querySelector(".start-btn");
 const foodItems = document.querySelector(".food-items");
-// const inputFoodName = document.querySelector("#foodname").value;
-// const inputHours = document.querySelector("#hours").value;
-// const inputMinutes = document.querySelector("#minutes").value;
+
 const form = document.querySelector(".form");
 let foodItemsObject = {};
 
@@ -61,7 +59,7 @@ function displayFoodItems(foodItem) {
   <div class="start-btn"><i class="fas fa-play"></i></div>
   
 </div>
-<div class="progress-bar"> <p class="ready-message hidden">Ready!</p> </div>
+<div class="progress-bar progress-bar-striped bg-info"> <p class="ready-message hidden">Ready!</p> </div>
     `;
 
   // insert the HTML into the app window
@@ -84,7 +82,7 @@ function timerFunction(e) {
       60 +
     Number(e.previousElementSibling.lastElementChild.textContent);
   e.parentElement.nextElementSibling.style.width = "100%";
-  e.parentElement.nextElementSibling.style.transition = `all ${seconds}s`;
+  e.parentElement.nextElementSibling.style.transition = `ease-in-out ${seconds}s`;
 
   setInterval(function () {
     if (seconds === 0) {
@@ -93,6 +91,10 @@ function timerFunction(e) {
       e.parentElement.nextElementSibling.firstElementChild.classList.remove(
         "hidden"
       );
+      // setTimeout(function () {
+      //   e.parentElement.firstElementChild.style.transform = "rotate(360deg)";
+      //   e.parentElement.firstElementChild.style.transition = "all 0.9s";
+      // }, 1000);
     } else {
       seconds--;
       const newSeconds = seconds % 60;
